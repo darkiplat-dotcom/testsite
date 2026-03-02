@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fazbear's Hunt - Nightmare Pack</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 15px;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ffaa00;
+            text-align: center;
+            font-size: 28px;
+            margin-top: 0;
+            border-bottom: 2px solid #ffaa00;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #ff5500;
+            font-size: 22px;
+            margin: 20px 0 10px 0;
+            border-left: 5px solid #ff5500;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #ffaa00;
+            font-size: 18px;
+            margin: 15px 0 5px 0;
+        }
+        .anim-block {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+        }
+        .ability {
+            background: #333;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ffaa00;
+        }
+        .ability-name {
+            font-weight: bold;
+            color: #ffaa00;
+        }
+        .key {
+            display: inline-block;
+            background: #444;
+            border-radius: 3px;
+            padding: 2px 8px;
+            font-family: monospace;
+            font-weight: bold;
+            color: #fff;
+            border: 1px solid #666;
+            margin: 0 2px;
+        }
+        .cooldown {
+            color: #ff5555;
+            font-size: 0.9em;
+        }
+        .note {
+            background: #222;
+            border-left: 4px solid #888;
+            padding: 8px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #444;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+        }
+        a {
+            color: #ffaa00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Nightmare Pack</h1>
+        <p style="text-align:center">Два новых аниматроника для Fazbear's Hunt</p>
+
+        <!-- Nightmare Fredbear -->
+        <div class="anim-block">
+            <h2>🐻 Nightmare Fredbear</h2>
+            <p><i>Кошмарный Фредбер — агрессивный охотник с мощными способностями.</i></p>
+
+            <div class="ability">
+                <span class="ability-name">🔪 Убийство</span> <span class="key">ЛКМ</span>
+                <br>Убивает выжившего, на которого смотрит (конус 30°, дальность 150). При успехе аниматроник замирает на 2 секунды (анимация убийства), затем кулдаун 2 секунды.
+            </div>
+
+            <div class="ability">
+                <span class="ability-name">🌀 Ужасающий рык</span> <span class="key">ПКМ</span> <span class="cooldown">(25 сек)</span>
+                <br>Рык пугает всех выживших в радиусе 400, нанося 25 HP урона и оглушая на 1 секунду.
+            </div>
+
+            <div class="ability">
+                <span class="ability-name">🔦 Просвет</span> <span class="key">R</span> <span class="cooldown">(100 сек)</span>
+                <br>Подсвечивает всех выживших в радиусе 2700 на 10 секунд.
+            </div>
+
+            <div class="note">
+                <strong>Пассивные особенности:</strong>
+                <ul style="margin:5px 0 0 20px; padding:0;">
+                    <li>Прыжки с кулдауном 0.5 сек и заморозкой на 0.5 сек после приземления.</li>
+                    <li>Неуязвимость к тазеру (5 сек заморозки, но не смерть).</li>
+                    <li>Динамические звуки шагов (частота зависит от скорости).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nightmare -->
+        <div class="anim-block">
+            <h2>👻 Nightmare</h2>
+            <p><i>Кошмар — скрытный убийца, способный становиться невидимым.</i></p>
+
+            <div class="ability">
+                <span class="ability-name">🔪 Убийство</span> <span class="key">ЛКМ</span>
+                <br>Аналогично Фредберу: убивает только по взгляду. Нельзя атаковать в невидимости и 5 секунд после выхода.
+            </div>
+
+            <div class="ability">
+                <span class="ability-name">👁️ Рассеяться (невидимость)</span> <span class="key">ПКМ</span> <span class="cooldown">(3 сек)</span>
+                <br>Становится невидимым, получает ускорение (walk 240 / run 900), но не может атаковать. При переходе замирает на 1 секунду. В невидимости слышно дыхание <span class="key">breath8.wav</span>, игрок может проходить сквозь других.
+                <br>После выхода блокировка атаки на 5 секунд, кулдаун повторного входа 5 секунд.
+            </div>
+
+            <div class="ability">
+                <span class="ability-name">🔦 Просвет</span> <span class="key">R</span> <span class="cooldown">(100 сек)</span>
+                <br>Подсвечивает выживших в радиусе 2700 на 10 секунд.
+            </div>
+
+            <div class="note">
+                <strong>Пассивные особенности:</strong>
+                <ul style="margin:5px 0 0 20px; padding:0;">
+                    <li>В невидимости нет кулдауна на прыжки и заморозки после приземления.</li>
+                    <li>Динамические шаги (отключаются в невидимости).</li>
+                    <li>Защита от тазера и освобождение после захвата.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Специальный раунд -->
+        <h2>🎮 Специальный раунд "Nightmare Duo"</h2>
+        <p>При 10+ игроках с шансом ~11% может начаться раунд, в котором сразу два убийцы: Nightmare Fredbear и Nightmare. Обычные игроки становятся выжившими. Победная сцена включает появление аниматроников и их рык.</p>
+
+        <hr>
+
+        <!-- Информация об аддоне -->
+        <h2>📦 Об аддоне</h2>
+        <p><strong>Название:</strong> Fazbear's Hunt - Nightmare Pack<br>
+        <strong>Версия:</strong> 1.0<br>
+        <strong>Автор:</strong> Ваше имя / никнейм<br>
+        <strong>Требует:</strong> Fazbear's Hunt (основной геймод)</p>
+
+        <p>Аддон добавляет двух новых аниматроников с уникальными механиками. Все способности тщательно сбалансированы для честной игры. Если у вас есть предложения или вы нашли баг — сообщите в Discord или на форум (ссылки ниже).</p>
+
+        <h3>🔗 Полезные ссылки</h3>
+        <ul>
+            <li><a href="https://discord.gg/62x8X3fzgE" target="_blank">Discord-сервер</a></li>
+            <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3656800786" target="_blank">Страница в мастерской</a></li>
+            <li><a href="https://github.com/darkiplat-dotcom/gmodmusic71" target="_blank">GitHub (исходный код)</a></li>
+        </ul>
+
+        <h3>🙏 Благодарности</h3>
+        <p>Спасибо создателям Fazbear's Hunt за основу, а также всем тестерам и сообществу за помощь и отзывы.</p>
+
+        <div class="footer">
+            &copy; 2026 | Fazbear's Hunt - Nightmare Pack<br>
+            <span style="font-size:0.9em;">Все права на персонажей принадлежат их владельцам.</span>
+        </div>
+    </div>
+</body>
+</html>
