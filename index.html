@@ -192,21 +192,7 @@
     </div>
     <script>
 function steamOpenURL(url) {
-    // Отправляем команду в консоль Garry's Mod
-    console.log('Opening URL: ' + url);
-    // Для клиентской части (когда страница открыта через MOTD или DHTML)
-    if (typeof window.cefQuery !== 'undefined') {
-        window.cefQuery({
-            request: 'steamoverlay://openurl/' + encodeURIComponent(url),
-            onSuccess: function(response) { console.log('Success'); },
-            onFailure: function(error_code, error_message) { console.log('Failed'); }
-        });
-    } else {
-        // Альтернативный метод через консольную команду
-        console.log('To open URL, use: gui.OpenURL("' + url + '") in console');
-        // Если страница открыта в браузере вне игры, просто открываем ссылку
-        window.open(url, '_blank');
-    }
+    window.location.href = "steam://openurl/" + encodeURIComponent(url);
 }
 </script>
 </body>
