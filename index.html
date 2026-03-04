@@ -177,9 +177,9 @@
 
         <h3>🔗 Полезные ссылки</h3>
         <ul>
-            <li><a href="https://discord.gg/62x8X3fzgE" target="_blank">Discord-сервер</a></li>
-            <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3656800786" target="_blank">Страница в мастерской</a></li>
-            <li><a href="https://github.com/darkiplat-dotcom/gmodmusic71" target="_blank">GitHub (исходный код)</a></li>
+            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://discord.gg/ваш-сервер')">Discord</a></li>
+            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://steamcommunity.com/sharedfiles/filedetails/?id=ваш-id')">Страница в мастерской</a></li>
+            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://github.com/ваш-репозиторий')">GitHub</a></li>
         </ul>
 
         <h3>🙏 Благодарности</h3>
@@ -190,5 +190,24 @@
             <span style="font-size:0.9em;">Все права на персонажей принадлежат их владельцам.</span>
         </div>
     </div>
+    <script>
+function steamOpenURL(url) {
+    // Отправляем команду в консоль Garry's Mod
+    console.log('Opening URL: ' + url);
+    // Для клиентской части (когда страница открыта через MOTD или DHTML)
+    if (typeof window.cefQuery !== 'undefined') {
+        window.cefQuery({
+            request: 'steamoverlay://openurl/' + encodeURIComponent(url),
+            onSuccess: function(response) { console.log('Success'); },
+            onFailure: function(error_code, error_message) { console.log('Failed'); }
+        });
+    } else {
+        // Альтернативный метод через консольную команду
+        console.log('To open URL, use: gui.OpenURL("' + url + '") in console');
+        // Если страница открыта в браузере вне игры, просто открываем ссылку
+        window.open(url, '_blank');
+    }
+}
+</script>
 </body>
 </html>
