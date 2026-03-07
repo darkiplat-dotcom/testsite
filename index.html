@@ -231,7 +231,7 @@
         <div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
     
-    <!-- Кнопка для открытия в приложении Discord -->
+    <!-- Попытка открыть в приложении Discord (если сработает) -->
     <div style="margin: 15px 0;">
         <a href="discord://discord.gg/62x8X3fzgE" 
            style="background: #5865F2; color: white; padding: 10px 20px; 
@@ -241,10 +241,10 @@
         </a>
     </div>
     
-    <!-- Резервная ссылка для браузера и кнопка копирования -->
+    <!-- Обычная ссылка для браузера и кнопка копирования (рабочая) -->
     <div style="margin-top: 10px;">
         • Discord (браузер): 
-        <a href="https://discord.gg/62x8X3fzgE" target="_blank">https://discord.gg/62x8X3fzgE</a>
+        <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
         <button onclick="copyDiscord()" style="background: #2d0a3a; color: #d4aaff; 
                 border: 1px solid #8a2be2; padding: 2px 8px; margin-left: 10px; 
                 cursor: pointer; font-family: inherit;">
@@ -258,14 +258,9 @@
 
 <script>
 function copyDiscord() {
-    var link = 'https://discord.gg/62x8X3fzgE';
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(link).then(function() {
-            alert('Ссылка скопирована! Вставьте её в адресную строку браузера.');
-        });
-    } else {
-        prompt('Скопируйте ссылку вручную:', link);
-    }
+    var link = document.getElementById('discord-link').innerText;
+    // Простой и надёжный способ: открываем диалог с уже выделенным текстом
+    prompt('Скопируйте ссылку вручную (Ctrl+C), затем вставьте в браузер:', link);
 }
 </script>
 
