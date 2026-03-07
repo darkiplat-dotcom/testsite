@@ -1,203 +1,258 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>Fazbear's Hunt - Nightmare Pack</title>
+    <meta charset="UTF-8">
+    <title>Fazbear's Hunt — Правила сервера</title>
     <style>
+        /* Общий стиль — как старый монитор пиццерии */
         body {
-            background: #1a1a1a;
-            color: #e0e0e0;
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 15px;
+            padding: 20px;
+            background: #0a0a0a url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%231a1a1a" /><path d="M10 10 L90 10 M10 20 L90 20 M10 30 L90 30 M10 40 L90 40 M10 50 L90 50 M10 60 L90 60 M10 70 L90 70 M10 80 L90 80 M10 90 L90 90 M10 10 L10 90 M20 10 L20 90 M30 10 L30 90 M40 10 L40 90 M50 10 L50 90 M60 10 L60 90 M70 10 L70 90 M80 10 L80 90 M90 10 L90 90" stroke="%23222" stroke-width="1" fill="none"/></svg>');
+            background-size: 100px 100px;
+            color: #b3b3b3;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
             line-height: 1.5;
+            text-shadow: 0 0 5px #6a0dad80;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
+
+        /* Контейнер с эффектом старого экрана */
+        .screen {
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 4px solid #4a0e4a;
+            box-shadow: 0 0 30px #8a2be2, inset 0 0 20px #1a001a;
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(1px);
+            animation: flicker 3s infinite;
         }
+
+        /* Эффект мерцания как у старых мониторов */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            2% { opacity: 0.9; }
+            4% { opacity: 1; }
+            19% { opacity: 1; }
+            21% { opacity: 0.8; }
+            23% { opacity: 1; }
+            50% { opacity: 1; }
+            52% { opacity: 0.9; }
+            54% { opacity: 1; }
+            80% { opacity: 1; }
+            82% { opacity: 0.7; }
+            84% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        h1, h2 {
+            font-family: 'VT323', 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #6a0dad;
+            padding-bottom: 5px;
+            color: #d4aaff;
+            text-shadow: 0 0 10px #9400d3, 2px 2px 0 #2d0a3a;
+        }
+
         h1 {
-            color: #ffaa00;
+            font-size: 42px;
             text-align: center;
-            font-size: 28px;
             margin-top: 0;
-            border-bottom: 2px solid #ffaa00;
-            padding-bottom: 10px;
+            border-bottom: 3px solid #b22222;
         }
+
         h2 {
-            color: #ff5500;
-            font-size: 22px;
-            margin: 20px 0 10px 0;
-            border-left: 5px solid #ff5500;
-            padding-left: 10px;
-        }
-        h3 {
-            color: #ffaa00;
-            font-size: 18px;
-            margin: 15px 0 5px 0;
-        }
-        .anim-block {
-            background: #2a2a2a;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #444;
-        }
-        .ability {
-            background: #333;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-            border-left: 4px solid #ffaa00;
-        }
-        .ability-name {
-            font-weight: bold;
-            color: #ffaa00;
-        }
-        .key {
-            display: inline-block;
-            background: #444;
-            border-radius: 3px;
-            padding: 2px 8px;
-            font-family: monospace;
-            font-weight: bold;
-            color: #fff;
-            border: 1px solid #666;
-            margin: 0 2px;
-        }
-        .cooldown {
-            color: #ff5555;
-            font-size: 0.9em;
-        }
-        .note {
-            background: #222;
-            border-left: 4px solid #888;
-            padding: 8px;
-            font-size: 0.9em;
-            color: #ccc;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #444;
-            margin: 20px 0;
-        }
-        .footer {
-            text-align: center;
-            font-size: 0.8em;
-            color: #777;
+            font-size: 28px;
             margin-top: 30px;
         }
-        a {
-            color: #ffaa00;
-            text-decoration: none;
+
+        /* Стили для списков */
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
         }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        li::before {
+            content: "▸";
+            color: #b22222;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+            font-size: 20px;
+            text-shadow: 0 0 8px red;
+        }
+
+        /* Неоновые акценты */
+        .warning {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .highlight {
+            color: #ffb347;
+            text-shadow: 0 0 8px orange;
+        }
+
+        /* Контактная информация */
+        .contacts {
+            background: #1a001a;
+            border-left: 6px solid #8a2be2;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        /* Эффект «запятнанной кровью» логотипа */
+        .logo {
+            text-align: center;
+            font-size: 50px;
+            font-family: 'VT323', monospace;
+            color: #8b0000;
+            text-shadow: 0 0 20px #ff0000, 2px 2px 0 #000;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            word-break: break-word;
+        }
+
+        .logo span {
+            color: #ffd700;
+            text-shadow: 0 0 15px gold;
+        }
+
+        /* Стили для ссылок (дискорд) */
+        a {
+            color: #b87cf7;
+            text-decoration: none;
+            border-bottom: 1px dashed #8a2be2;
+        }
+
         a:hover {
-            text-decoration: underline;
+            color: #ff99ff;
+            border-bottom: 1px solid #ff00ff;
+        }
+
+        /* Симулируем строки сканирования */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 2px, transparent 2px, transparent 4px);
+            z-index: 999;
+        }
+
+        /* Маленький тикающий таймер в углу (для атмосферы) */
+        .timer {
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            font-family: 'VT323', monospace;
+            font-size: 24px;
+            color: #33ff33;
+            text-shadow: 0 0 10px #00ff00;
+            opacity: 0.3;
+            z-index: 1000;
+        }
+
+        @media (max-width: 600px) {
+            body { font-size: 14px; }
+            h1 { font-size: 32px; }
+            h2 { font-size: 22px; }
         }
     </style>
+    <!-- Подключаем шрифт VT323 с Google Fonts (локально не храним, но для красоты) -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>🌙 Nightmare Pack</h1>
-        <p style="text-align:center">Два новых аниматроника для Fazbear's Hunt</p>
+    <div class="scanlines"></div>
+    <div class="timer" id="timer">06:00 AM</div>
 
-        <!-- Nightmare Fredbear -->
-        <div class="anim-block">
-            <h2>🐻 Nightmare Fredbear</h2>
-            <p><i>Кошмарный Фредбер — агрессивный охотник с мощными способностями.</i></p>
-
-            <div class="ability">
-                <span class="ability-name">🔪 Убийство</span> <span class="key">ЛКМ</span>
-                <br>Убивает выжившего, на которого смотрит (конус 30°, дальность 140). При успехе аниматроник замирает на 2 секунды (анимация убийства), затем кулдаун 2 секунды.
-            </div>
-
-            <div class="ability">
-                <span class="ability-name">🌀 Метка смерти </span> <span class="key">ПКМ</span> <span class="cooldown">(60 сек)</span>
-                <br>Издаёт рык и выбирает случайного игрока не ближе 600 единиц. Получает бафф скорости и 35 секунд времени на то, чтобы добежать до жертвы и убить.
-            </div>
-
-            <div class="ability">
-                <span class="ability-name">🔦 Просвет</span> <span class="key">R</span> <span class="cooldown">(100 сек)</span>
-                <br>Подсвечивает всех выживших в радиусе 2700 на 10 секунд.
-            </div>
-
-            <div class="note">
-                <strong>Пассивные особенности:</strong>
-                <ul style="margin:5px 0 0 20px; padding:0;">
-                    <li>Прыжки с кулдауном 0.5 сек и заморозкой на 0.5 сек после приземления.</li>
-                    <li>Динамические звуки шагов (частота зависит от скорости).</li>
-                </ul>
-            </div>
+    <div class="screen">
+        <div class="logo">
+            <span>FAZBEAR'S</span> HUNT
         </div>
+        <h1>▸ ПРАВИЛА СЕРВЕРА ◂</h1>
 
-        <!-- Nightmare -->
-        <div class="anim-block">
-            <h2>👻 Nightmare</h2>
-            <p><i>Кошмар — скрытный убийца, способный становиться невидимым.</i></p>
+        <p class="warning">// Внимание: Нарушение правил может привести к бану без предупреждения. //</p>
 
-            <div class="ability">
-                <span class="ability-name">🔪 Убийство</span> <span class="key">ЛКМ</span>
-                <br>Аналогично Фредберу: убивает только по взгляду. Нельзя атаковать в невидимости и 3 секунд после выхода.
-            </div>
-
-            <div class="ability">
-                <span class="ability-name">👁️ Рассеяться (невидимость)</span> <span class="key">ПКМ</span> <span class="cooldown">(3 сек)</span>
-                <br>Становится невидимым, получает ускорение (walk 240 / run 750), но не может атаковать. При переходе замирает на 1 секунду. В невидимости слышно дыхание <span class="key">breath8.wav</span>, игрок может проходить сквозь других.
-                <br>После выхода блокировка атаки на 3 секунды, кулдаун повторного входа 8 секунд.
-            </div>
-
-            <div class="ability">
-                <span class="ability-name">🔦 Просвет</span> <span class="key">R</span> <span class="cooldown">(100 сек)</span>
-                <br>Подсвечивает выживших в радиусе 2700 на 10 секунд.
-            </div>
-
-            <div class="note">
-                <strong>Пассивные особенности:</strong>
-                <ul style="margin:5px 0 0 20px; padding:0;">
-                    <li>В невидимости нет кулдауна на прыжки и заморозки после приземления.</li>
-                    <li>Динамические шаги (отключаются в невидимости).</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Специальный раунд -->
-        <h2>🎮 Специальный раунд "Nightmare Duo"</h2>
-        <p>При 10+ игроках с шансом ~11% может начаться раунд, в котором сразу два убийцы: Nightmare Fredbear и Nightmare. Обычные игроки становятся выжившими. Победная сцена включает появление аниматроников и их рык.</p>
-
-        <hr>
-
-        <!-- Информация об аддоне -->
-        <h2>📦 Об аддоне</h2>
-        <p><strong>Название:</strong> Fazbear's Hunt - Nightmare Pack<br>
-        <strong>Версия:</strong> 1.0<br>
-        <strong>Автор:</strong> MaKZ71 <br>
-        <strong>Требует:</strong> Fazbear's Hunt (основной гейммод)</p>
-
-        <p>Аддон добавляет двух новых аниматроников с уникальными механиками. Все способности тщательно сбалансированы для честной игры. Если у вас есть предложения или вы нашли баг — сообщите в Discord (ссылка ниже).</p>
-
-        <h3>🔗 Полезные ссылки</h3>
+        <h2>📌 ОБЩИЕ ПРАВИЛА</h2>
         <ul>
-            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://discord.gg/62x8X3fzgE')">Discord</a></li>
-            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://steamcommunity.com/sharedfiles/filedetails/?id=3656800786')">Страница в мастерской</a></li>
-            <li><a href="javascript:void(0);" onclick="steamOpenURL('https://github.com/darkiplat-dotcom')">GitHub</a></li>
+            <li><span class="highlight">1.1</span> Уважайте других игроков. Никаких оскорблений, токсичности или домогательств.</li>
+            <li><span class="highlight">1.2</span> Запрещён читерский софт, эксплойты и использование багов в свою пользу (сообщайте админам).</li>
+            <li><span class="highlight">1.3</span> Не мешайте игре других: не блокируйте проходы, не преследуйте людей вне игровой механики.</li>
+            <li><span class="highlight">1.4</span> Реклама других серверов/ресурсов запрещена.</li>
+            <li><span class="highlight">1.5</span> Администратор всегда прав, но вы можете обжаловать решение в Discord.</li>
         </ul>
 
-        <h3>🙏 Благодарности</h3>
-        <p>Спасибо создателям Fazbear's Hunt за основу, а также всем тестерам и сообществу за помощь и отзывы.</p>
+        <h2>🔦 ПРАВИЛА ДЛЯ ВЫЖИВШИХ</h2>
+        <ul>
+            <li><span class="highlight">2.1</span> Выжившие должны играть в команде, но не обязаны бегать вместе.</li>
+            <li><span class="highlight">2.2</span> Запрещено специально выбегать на убийцу, чтобы умереть (фидинг).</li>
+            <li><span class="highlight">2.3</span> Нельзя занимать камеры/планшеты на всё время раунда (портит игру).</li>
+            <li><span class="highlight">2.4</span> Использование голосового чата для обмана аниматроников (имитация звуков) разрешено, но без криков в микрофон.</li>
+        </ul>
 
-        <div class="footer">
-            &copy; 2026 | MaKZ71 и Fazbear's Hunt<br>
-            <span style="font-size:0.9em;">Все права на персонажей принадлежат их владельцам.</span>
+        <h2>🔪 ПРАВИЛА ДЛЯ АНИМАТРОНИКОВ</h2>
+        <ul>
+            <li><span class="highlight">3.1</span> Не засиживайтесь в спавне — охотьтесь активно.</li>
+            <li><span class="highlight">3.2</span> Запрещено намеренно убивать одного и того же игрока несколько раз подряд, если есть другие цели.</li>
+            <li><span class="highlight">3.3</span> Не используйте способности вне их механик (например, телепорт сквозь стены, если не предусмотрено).</li>
+            <li><span class="highlight">3.4</span> Если вы последний аниматроник и остался один выживший — дайте ему шанс (не убивайте сразу в лоб).</li>
+        </ul>
+
+        <h2>⛔ ЗАПРЕЩЕНО КАТЕГОРИЧЕСКИ</h2>
+        <ul>
+            <li><span class="warning">✖</span> Использование сторонних программ для преимущества (ESP, Aimbot, Speedhack).</li>
+            <li><span class="warning">✖</span> Гриферство: уничтожение пропов, мешающих игре, подрыв генераторов (если это не часть механики).</li>
+            <li><span class="warning">✖</span> Намеренное затягивание раунда (прятки в труднодоступных местах без движения).</li>
+            <li><span class="warning">✖</span> Оскорбления по расовым, национальным или религиозным признакам.</li>
+        </ul>
+
+        <h2>🎧 РЕКОМЕНДАЦИИ</h2>
+        <ul>
+            <li>▶ Используйте наушники — звук очень важен в Fazbear's Hunt.</li>
+            <li>▶ Не стесняйтесь звать администратора через чат или Discord, если что-то пошло не так.</li>
+            <li>▶ Играйте в своё удовольствие и давайте играть другим.</li>
+        </ul>
+
+        <div class="contacts">
+            📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
+            • Discord: <a href="#">https://discord.gg/62x8X3fzgE</a> (замените ссылку)<br>
+            • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
+            • По вопросам багов: пишите в #баг-репорты.
         </div>
+
+        <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
+            «Здесь всё может пойти не по плану... Остерегайтесь теней.»<br>
+            <span style="font-family: monospace;">Сервер работает на Fazbear's Hunt v2.0 | Правила обновлены: 08.03.2026</span>
+        </p>
     </div>
+
     <script>
-function steamOpenURL(url) {
-    console.log("Opening URL:", url);
-    var meta = document.createElement('meta');
-    meta.httpEquiv = "refresh";
-    meta.content = "0; url=steam://openurl/" + encodeURIComponent(url);
-    document.head.appendChild(meta);
-}
-</script>
+        // Простой таймер, меняющий время каждую минуту (для атмосферы)
+        let time = 6 * 60; // 6:00 утра
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            time = (time + 1) % (24 * 60);
+            const hours = Math.floor(time / 60).toString().padStart(2, '0');
+            const minutes = (time % 60).toString().padStart(2, '0');
+            const ampm = hours < 12 ? 'AM' : 'PM';
+            timerEl.textContent = `${hours}:${minutes} ${ampm}`;
+        }, 60000); // обновление раз в минуту
+    </script>
 </body>
 </html>
