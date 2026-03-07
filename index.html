@@ -228,20 +228,21 @@
             <li>▶ Играйте в своё удовольствие и давайте играть другим.</li>
         </ul>
 
-        <div class="contacts">
+        <!-- Контактная информация -->
+<div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
     
-    <!-- Попытка открыть в приложении Discord (если сработает) -->
+    <!-- Новая кнопка, которая работает через игру -->
     <div style="margin: 15px 0;">
-    <a href="steam://openurl/https://discord.gg/62x8X3fzgE" 
-       style="background: #5865F2; color: white; padding: 10px 20px; 
-              border-radius: 5px; text-decoration: none; display: inline-block;
-              font-family: inherit; border: 1px solid #8a2be2;">
-        🌐 Открыть Discord (Steam Overlay)
-    </a>
-</div>
+        <button onclick="openDiscordInBrowser()" 
+                style="background: #5865F2; color: white; padding: 10px 20px; 
+                       border-radius: 5px; text-decoration: none; display: inline-block;
+                       border: none; font-family: inherit; border: 1px solid #8a2be2; cursor: pointer;">
+            🌐 ОТКРЫТЬ DISCORD (ЧЕРЕЗ ИГРУ)
+        </button>
+    </div>
     
-    <!-- Обычная ссылка для браузера и кнопка копирования (рабочая) -->
+    <!-- Запасной вариант: обычная ссылка и кнопка копирования -->
     <div style="margin-top: 10px;">
         • Discord (браузер): 
         <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
@@ -256,10 +257,22 @@
     • По вопросам багов: пишите в #баг-репорты.
 </div>
 
+<!-- СКРИПТ, КОТОРЫЙ ОБЩАЕТСЯ С ИГРОЙ -->
 <script>
+function openDiscordInBrowser() {
+    // Пытаемся отправить сообщение в Garry's Mod
+    // Это стандартный интерфейс, который GMod предоставляет для связи с MOTD
+    if (typeof window.external !== 'undefined' && window.external.sendToGame) {
+        window.external.sendToGame('open_discord');
+    } else {
+        // Если мы не в игре (например, тестируем в браузере), открываем обычную ссылку
+        window.open('https://discord.gg/62x8X3fzgE', '_blank');
+    }
+}
+
+// Функция копирования (оставляем как есть, она рабочая)
 function copyDiscord() {
     var link = document.getElementById('discord-link').innerText;
-    // Простой и надёжный способ: открываем диалог с уже выделенным текстом
     prompt('Скопируйте ссылку вручную (Ctrl+C), затем вставьте в браузер:', link);
 }
 </script>
