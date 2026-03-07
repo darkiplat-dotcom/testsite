@@ -230,27 +230,40 @@
 
         <div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
-    • Discord: 
-    <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
-    <button onclick="copyDiscord()" style="background: #2d0a3a; color: #d4aaff; border: 1px solid #8a2be2; padding: 2px 8px; margin-left: 10px; cursor: pointer; font-family: inherit;">Копировать</button>
-    <br>
+    
+    <!-- Кнопка для открытия в приложении Discord -->
+    <div style="margin: 15px 0;">
+        <a href="discord://discord.gg/62x8X3fzgE" 
+           style="background: #5865F2; color: white; padding: 10px 20px; 
+                  border-radius: 5px; text-decoration: none; display: inline-block;
+                  font-family: inherit; border: 1px solid #8a2be2;">
+            🎮 Открыть в приложении Discord
+        </a>
+    </div>
+    
+    <!-- Резервная ссылка для браузера и кнопка копирования -->
+    <div style="margin-top: 10px;">
+        • Discord (браузер): 
+        <a href="https://discord.gg/62x8X3fzgE" target="_blank">https://discord.gg/62x8X3fzgE</a>
+        <button onclick="copyDiscord()" style="background: #2d0a3a; color: #d4aaff; 
+                border: 1px solid #8a2be2; padding: 2px 8px; margin-left: 10px; 
+                cursor: pointer; font-family: inherit;">
+            Копировать
+        </button>
+    </div>
+    
     • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
     • По вопросам багов: пишите в #баг-репорты.
 </div>
 
 <script>
 function copyDiscord() {
-    var link = document.getElementById('discord-link').innerText;
-    // Используем современный Clipboard API
+    var link = 'https://discord.gg/62x8X3fzgE';
     if (navigator.clipboard) {
         navigator.clipboard.writeText(link).then(function() {
-            alert('Ссылка скопирована! Вставьте её в адресную строку браузера (Chrome, Firefox и т.д.).');
-        }).catch(function() {
-            // Если API недоступен (старые браузеры)
-            prompt('Скопируйте ссылку вручную:', link);
+            alert('Ссылка скопирована! Вставьте её в адресную строку браузера.');
         });
     } else {
-        // Запасной вариант для очень старых браузеров
         prompt('Скопируйте ссылку вручную:', link);
     }
 }
