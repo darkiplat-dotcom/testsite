@@ -232,32 +232,38 @@
 
         <!-- Контактная информация -->
 <div class="contacts">
-    📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
-    
-    <!-- Новая кнопка, которая работает через игру -->
-    <div style="margin: 15px 0;">
-        <button onclick="openDiscordInBrowser()" 
-                style="background: #5865F2; color: white; padding: 10px 20px; 
-                       border-radius: 5px; text-decoration: none; display: inline-block;
-                       border: none; font-family: inherit; border: 1px solid #8a2be2; cursor: pointer;">
-            🌐 ОТКРЫТЬ DISCORD (ЧЕРЕЗ ИГРУ)
-        </button>
-    </div>
-    
-    <!-- Запасной вариант: обычная ссылка и кнопка копирования -->
-    <div style="margin-top: 10px;">
-        • Discord (браузер): 
-        <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
-    • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
-    • По вопросам багов: пишите в #баг-репорты.
-    </div>
-    <div>
-     <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
+            📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
+            
+            <!-- Кнопка, открывающая Discord через игру -->
+            <div style="margin: 15px 0;">
+                <button onclick="openDiscordInBrowser()" 
+                        style="background: #5865F2; color: white; padding: 10px 20px; 
+                               border-radius: 5px; text-decoration: none; display: inline-block;
+                               border: none; font-family: inherit; border: 1px solid #8a2be2; cursor: pointer;">
+                    🌐 ОТКРЫТЬ DISCORD (ЧЕРЕЗ ИГРУ)
+                </button>
+            </div>
+            
+            <!-- Запасной вариант: ссылка и кнопка копирования -->
+            <div style="margin-top: 10px;">
+                • Discord (браузер): 
+                <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
+            </div>
+            
+            <!-- Информация о жалобах и багах -->
+            <div style="margin-top: 10px;">
+                • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
+                • По вопросам багов: пишите в #баг-репорты.
+            </div>
+        </div>
+
+        <!-- Отдельная подпись снизу -->
+        <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #666; border-top: 1px dashed #4a0e4a; padding-top: 20px;">
             «Здесь всё может пойти не по плану... Остерегайтесь теней.»<br>
             <span style="font-family: monospace;">Сервер работает на Fazbear's Hunt v2.0 | Правила обновлены: 08.03.2026</span>
-        </p>
-    </div>
-</div>
+        </div>
+    </div> <!-- закрытие .screen -->
+
 
 <!-- СКРИПТ, КОТОРЫЙ ОБЩАЕТСЯ С ИГРОЙ -->
 <script>
@@ -294,5 +300,7 @@ function copyDiscord() {
     updateTimer();
     setInterval(updateTimer, 1000);
 </script>
+</body>
+</html>
 </body>
 </html>
