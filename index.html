@@ -243,16 +243,19 @@
     </div>
 
     <script>
-        // Простой таймер, меняющий время каждую минуту (для атмосферы)
-        let time = 6 * 60; // 6:00 утра
-        const timerEl = document.getElementById('timer');
-        setInterval(() => {
-            time = (time + 1) % (24 * 60);
-            const hours = Math.floor(time / 60).toString().padStart(2, '0');
-            const minutes = (time % 60).toString().padStart(2, '0');
-            const ampm = hours < 12 ? 'AM' : 'PM';
-            timerEl.textContent = `${hours}:${minutes} ${ampm}`;
-        }, 60000); // обновление раз в минуту
-    </script>
+    function updateTimer() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 -> 12
+        const timeString = `${hours.toString().padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+        document.getElementById('timer').textContent = timeString;
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+</script>
 </body>
 </html>
