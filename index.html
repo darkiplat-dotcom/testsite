@@ -230,16 +230,31 @@
 
         <div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
-    • Discord: <a href="https://discord.gg/62x8X3fzgE" target="_blank">https://discord.gg/62x8X3fzgE</a><br>
+    • Discord: 
+    <span id="discord-link">https://discord.gg/yourlink</span>
+    <button onclick="copyDiscord()" style="background: #2d0a3a; color: #d4aaff; border: 1px solid #8a2be2; padding: 2px 8px; margin-left: 10px; cursor: pointer; font-family: inherit;">Копировать</button>
+    <br>
     • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
     • По вопросам багов: пишите в #баг-репорты.
 </div>
 
-        <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
-            «Здесь всё может пойти не по плану... Остерегайтесь теней.»<br>
-            <span style="font-family: monospace;">Сервер работает на Fazbear's Hunt v2.0 | Правила обновлены: 08.03.2026</span>
-        </p>
-    </div>
+<script>
+function copyDiscord() {
+    var link = document.getElementById('discord-link').innerText;
+    // Используем современный Clipboard API
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(link).then(function() {
+            alert('Ссылка скопирована! Вставьте её в адресную строку браузера (Chrome, Firefox и т.д.).');
+        }).catch(function() {
+            // Если API недоступен (старые браузеры)
+            prompt('Скопируйте ссылку вручную:', link);
+        });
+    } else {
+        // Запасной вариант для очень старых браузеров
+        prompt('Скопируйте ссылку вручную:', link);
+    }
+}
+</script>
 
     <script>
     function updateTimer() {
