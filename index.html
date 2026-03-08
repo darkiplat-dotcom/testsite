@@ -254,11 +254,15 @@
         </div>
 <script>
 function sendCommand() {
-    // Попытка отправить команду в игру
-    if (window.external && typeof window.external.sendToGame === 'function') {
-        window.external.sendToGame('discord_button_pressed');
+    if (window.external) {
+        // Пробуем разные варианты
+        if (typeof window.external.sendToGame === 'function') {
+            window.external.sendToGame('discord_button_pressed');
+        } else if (typeof window.external === 'object') {
+            // Альтернативный способ для старых версий
+            window.location = 'gmod://say !discord';
+        }
     } else {
-        // Если не в игре, просто открываем ссылку (для теста)
         window.open('https://discord.gg/62x8X3fzgE', '_blank');
     }
 }
