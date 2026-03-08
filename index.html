@@ -230,58 +230,39 @@
             <li>▶ Играйте в своё удовольствие и давайте играть другим.</li>
         </ul>
 
-        <!-- Контактная информация -->
-<div class="contacts">
-            📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
-            
-            <!-- Кнопка, открывающая Discord через игру -->
-            <div style="margin: 15px 0;">
-                <button onclick="openDiscordInBrowser()" 
-                        style="background: #5865F2; color: white; padding: 10px 20px; 
-                               border-radius: 5px; text-decoration: none; display: inline-block;
-                               border: none; font-family: inherit; border: 1px solid #8a2be2; cursor: pointer;">
-                    🌐 ОТКРЫТЬ DISCORD (ЧЕРЕЗ ИГРУ)
-                </button>
-            </div>
-            
-            <!-- Запасной вариант: ссылка и кнопка копирования -->
-            <div style="margin-top: 10px;">
-                • Discord (браузер): 
-                <span id="discord-link">https://discord.gg/62x8X3fzgE</span>
-            </div>
-            
-            <!-- Информация о жалобах и багах -->
-            <div style="margin-top: 10px;">
-                • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
-                • По вопросам багов: пишите в #баг-репорты.
-            </div>
-        </div>
+        <div class="contacts">
+    📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
+    
+    <!-- Кнопка, которая отправляет команду в чат -->
+    <div style="margin: 15px 0;">
+        <button onclick="sendDiscordCommand()" 
+                style="background: #5865F2; color: white; padding: 10px 20px; 
+                       border-radius: 5px; border: none; font-family: inherit; 
+                       border: 1px solid #8a2be2; cursor: pointer;">
+            🎮 Открыть Discord (через чат)
+        </button>
+    </div>
+    
+    <!-- Запасной текст с командой -->
+    <div style="margin-top: 10px;">
+        • Или введите в чате: <code style="background:#1a001a; padding:2px 6px; border:1px solid #8a2be2;">!discord</code>
+    </div>
+    
+    <div style="margin-top: 15px;">
+        • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
+        • По вопросам багов: пишите в #баг-репорты.
+    </div>
+</div>
 
-        <!-- Отдельная подпись снизу -->
-        <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #666; border-top: 1px dashed #4a0e4a; padding-top: 20px;">
-            «Здесь всё может пойти не по плану... Остерегайтесь теней.»<br>
-            <span style="font-family: monospace;">Сервер работает на Fazbear's Hunt v2.0 | Правила обновлены: 08.03.2026</span>
-        </div>
-    </div> <!-- закрытие .screen -->
-
-
-<!-- СКРИПТ, КОТОРЫЙ ОБЩАЕТСЯ С ИГРОЙ -->
 <script>
-function openDiscordInBrowser() {
-    // Пытаемся отправить сообщение в Garry's Mod
-    // Это стандартный интерфейс, который GMod предоставляет для связи с MOTD
-    if (typeof window.external !== 'undefined' && window.external.sendToGame) {
-        window.external.sendToGame('open_discord');
+function sendDiscordCommand() {
+    // Отправляем сигнал в игру
+    if (window.external && window.external.sendToGame) {
+        window.external.sendToGame('say !discord');
     } else {
-        // Если мы не в игре (например, тестируем в браузере), открываем обычную ссылку
+        // Если не в игре (тестирование в браузере), открываем ссылку напрямую
         window.open('https://discord.gg/62x8X3fzgE', '_blank');
     }
-}
-
-// Функция копирования (оставляем как есть, она рабочая)
-function copyDiscord() {
-    var link = document.getElementById('discord-link').innerText;
-    prompt('Скопируйте ссылку вручную (Ctrl+C), затем вставьте в браузер:', link);
 }
 </script>
 
