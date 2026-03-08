@@ -233,34 +233,28 @@
         <div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
     
-    <!-- Кнопка, которая отправляет команду в чат -->
+    <!-- Кнопка -->
     <div style="margin: 15px 0;">
-        <button onclick="sendDiscordCommand()" 
+        <button onclick="sendCommand()" 
                 style="background: #5865F2; color: white; padding: 10px 20px; 
-                       border-radius: 5px; border: none; font-family: inherit; 
-                       border: 1px solid #8a2be2; cursor: pointer;">
-            🎮 Открыть Discord (через чат)
+                       border-radius: 5px; border: none; cursor: pointer;">
+            🎮 Открыть Discord
         </button>
     </div>
     
-    <!-- Запасной текст с командой -->
     <div style="margin-top: 10px;">
-        • Или введите в чате: <code style="background:#1a001a; padding:2px 6px; border:1px solid #8a2be2;">!discord</code>
-    </div>
-    
-    <div style="margin-top: 15px;">
         • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
         • По вопросам багов: пишите в #баг-репорты.
     </div>
 </div>
 
 <script>
-function sendDiscordCommand() {
-    // Отправляем сигнал в игру
-    if (window.external && window.external.sendToGame) {
-        window.external.sendToGame('say !discord');
+function sendCommand() {
+    // Попытка отправить команду в игру
+    if (window.external && typeof window.external.sendToGame === 'function') {
+        window.external.sendToGame('discord_button_pressed');
     } else {
-        // Если не в игре (тестирование в браузере), открываем ссылку напрямую
+        // Если не в игре, просто открываем ссылку (для теста)
         window.open('https://discord.gg/62x8X3fzgE', '_blank');
     }
 }
