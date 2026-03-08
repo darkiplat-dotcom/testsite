@@ -232,42 +232,26 @@
 
         <div class="contacts">
     📢 <strong>СВЯЗЬ С АДМИНИСТРАЦИЕЙ</strong><br>
-    
-    <!-- Кнопка -->
+
+    <!-- Новая кнопка-ссылка -->
     <div style="margin: 15px 0;">
-        <button onclick="sendCommand()" 
-                style="background: #5865F2; color: white; padding: 10px 20px; 
-                       border-radius: 5px; border: none; cursor: pointer;">
-            🎮 Открыть Discord
-        </button>
+        <a href="steam://openurl/http://127.0.0.1:27015/discord"
+           style="background: #5865F2; color: white; padding: 10px 20px;
+                  border-radius: 5px; text-decoration: none; display: inline-block;
+                  font-family: inherit; border: 1px solid #8a2be2;">
+            🎮 Открыть Discord (автоматически)
+        </a>
     </div>
-    
+
+    <!-- Оставляем запасной вариант -->
     <div style="margin-top: 10px;">
-        • Жалобы на игроков — через Discord или в личные сообщения админам.<br>
-        • По вопросам багов: пишите в #баг-репорты.
+        • Или введите в чате: <code style="background:#1a001a; padding:2px 6px; border:1px solid #8a2be2;">!discord</code>
     </div>
-</div>
 <!-- Отдельная подпись снизу -->
         <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #666; border-top: 1px dashed #4a0e4a; padding-top: 20px;">
             «Здесь всё может пойти не по плану... Остерегайтесь теней.»<br>
             <span style="font-family: monospace;">Сервер работает на Fazbear's Hunt v2.0 | Правила обновлены: 08.03.2026</span>
         </div>
-<script>
-function sendCommand() {
-    if (window.external) {
-        // Пробуем разные варианты
-        if (typeof window.external.sendToGame === 'function') {
-            window.external.sendToGame('discord_button_pressed');
-        } else if (typeof window.external === 'object') {
-            // Альтернативный способ для старых версий
-            window.location = 'gmod://say !discord';
-        }
-    } else {
-        window.open('https://discord.gg/62x8X3fzgE', '_blank');
-    }
-}
-</script>
-
     <script>
     function updateTimer() {
         const now = new Date();
